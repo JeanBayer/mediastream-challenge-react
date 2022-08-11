@@ -1,27 +1,57 @@
+* {
+  box-sizing: border-box;
+  --background-color: #222222;
+}
+
+body {
+  background-color: var(--background-color);
+}
+
 .movie-library {
-  background-color: var(--black);
   color: var(--white);
   min-height: 100vh;
-  padding: 2em;
+}
+
+.movie-library__header {
+  background-image: url("./mountains.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0 -150px;
+  background-attachment: fixed;
+  padding: 60px 1rem 15px;
+
 }
 
 .movie-library__title {
   font-size: 2em;
+  font-weight: bold;
+  width: 100%;
+  max-width: 1492px;
+  margin: 0 auto;
   margin-bottom: 1em;
 }
 
 .movie-library__actions {
   display: flex;
+  width: 100%;
+  max-width: 1492px;
+  margin: 0 auto;
   margin-bottom: 1em;
 }
 
 .movie-library__actions select {
   width: 100%;
-  padding: .25em;
+  padding: .5rem;
+  border-radius: 4px 0 0 4px;
+  border: none;
 }
 
 .movie-library__actions button {
   white-space: nowrap;
+  background-color: var(--ms-green);
+  border: none;
+  border-radius: 0 4px 4px 0;
+  padding: 2px 16px;
 }
 
 .movie-library__loading {
@@ -33,19 +63,47 @@
 }
 
 .movie-library__list {
-  padding: 1em;
+  padding: 1rem;
+  width: 100%;
+  max-width: 1492px;
+  margin: 0 auto;
   background-color: #222222;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .movie-library__card {
   background-color: #333333;
   margin-bottom: 1em;
   display: flex;
-  align-items: center;
+  width: 230px;
+  height: 350px;
+  border-radius: 10px;
+  position: relative;
 }
 
-.movie-library__card img {
-  width: 10em;
+.movie-library__card-front {
+  box-shadow: 0 8px 22px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: linear-gradient(0deg, var(--ms-green) 7%, rgba(106, 253, 45, 0.26131924715909094) 40%, rgba(106, 253, 45, 0) 100%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  transition: all 0.3s ease-in-out;
+}
+
+.movie-library__card-front:hover {
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  cursor: pointer;
+  background: linear-gradient(0deg, var(--ms-green) 0%, rgba(106, 253, 45, 0.26131924715909094) 30%, rgba(106, 253, 45, 0) 100%);
 }
 
 .movie-library__card ul {
@@ -54,4 +112,10 @@
 
 .movie-library__card li {
   line-height: 120%;
+  font-size: 0.8rem;
+}
+
+.movie-library__card ul li:nth-child(1) {
+  font-size: 1.2rem;
+  font-weight: bold;
 }
